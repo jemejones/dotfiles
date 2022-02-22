@@ -33,7 +33,6 @@ local mappings = {
     {'n', '<leader>x', '<cmd>bd<CR>'},
     {'n', '<localleader>f', '<cmd>Telescope find_files<CR>'},
     {'n', 'gQ', 'mmgggqG\'m'}, -- Comments to keep
-    {'n', 'gh', "<cmd>HopChar2<cr>"}, -- one entry
     {'t', '<M-h>', '<C-\\><C-n><C-w>h'}, -- per line
     {'t', '<M-j>', '<C-\\><C-n><C-w>j'}, -- when formatting
     {'t', '<M-k>', '<C-\\><C-n><C-w>k'}, -- TODO(mxdevmanuel)

@@ -202,23 +202,6 @@ return require('packer').startup(function()
         opt = true,
         event = "BufRead"
     }
-    use {
-        'phaazon/hop.nvim',
-        as = 'hop',
-        opt = true,
-        cmd = "HopChar2",
-        config = function()
-            require'hop'.setup {
-                keys = 'asdfqwerzxcv'
-            }
-        end
-    }
-    use {
-        'folke/which-key.nvim',
-        opt = true,
-        cmd = {'WhichKey'},
-        config = function() require'which-key'.setup() end
-    }
 
     -- LSP
     use {
