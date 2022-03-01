@@ -23,7 +23,7 @@ local mappings = {
     {'n', '<leader>a', '<cmd>NvimTreeToggle<CR>'},
     {'n', '<leader>b', '<cmd>Telescope buffers<CR>'},
     {'n', '<leader>f', '<cmd>Telescope git_files<CR>'},
-    {'n', '<leader>h', '<cmd>Telescope oldfiles<CR>'},
+    {'n', '<leader>h', '<cmd>Telescope find_files hidden=true<CR>'},
     {'n', '<leader>n', '<cmd>bn<CR>'},
     {'n', '<leader>sh', '<cmd>split <Bar> ter<CR>'},
     {'n', '<leader>t', '<cmd>Telescope tags<CR>'},

@@ -90,9 +90,22 @@ o.guifont = "SF Mono Powerline:h12"
 if g.neovide ~= nil then require('environment').setup() end
 
 
-vim.o.clipboard = 'unnamedplus'
+o.clipboard = 'unnamedplus'
+
 if (fn.has("wsl") == 1) then
-    vim.cmd 'let g:clipboard = { \'name\': \'win32yank-wsl\', \'copy\': { \'+\': \'win32yank.exe -i --crlf\', \'*\': \'win32yank.exe -i --crlf\', }, \'paste\': { \'+\': \'win32yank.exe -o --lf\', \'*\': \'win32yank.exe -o --lf\', }, \'cache_enabled\': 0, }'
+    g.clipboard = {
+      name = 'wsl-clip',
+      copy = {
+        ['+'] = { 'wsl-clip', 'save' },
+        ['*'] = { 'wsl-clip', 'save' }
+      },
+      paste = {
+        ['+'] = { 'wsl-clip', 'load' },
+        ['*'] = { 'wsl-clip', 'load' }
+      },
+      cache_enabled = 1
+    }
+
 end
 
 vim.cmd("colorscheme kanagawa")

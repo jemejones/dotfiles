@@ -1,0 +1,12 @@
+#!/bin/bash
+
+case "$1" in
+    load )
+        powershell.exe Get-Clipboard | paste_helper.py
+        exit 0
+        ;;
+    save )
+        copy_helper.py | clip.exe
+        exit 0
+        ;;
+esac
