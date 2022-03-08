@@ -96,12 +96,14 @@ if (fn.has("wsl") == 1) then
     g.clipboard = {
       name = 'wsl-clip',
       copy = {
+        -- + seems to be the register being used
         ['+'] = { 'wsl-clip', 'save' },
-        ['*'] = { 'wsl-clip', 'save' }
+        ['*'] = { 'wsl-clip', 'save' },
       },
       paste = {
+        -- + seems to be the register being used
         ['+'] = { 'wsl-clip', 'load' },
-        ['*'] = { 'wsl-clip', 'load' }
+        ['*'] = { 'wsl-clip', 'load' },
       },
       cache_enabled = 1
     }
@@ -109,5 +111,8 @@ if (fn.has("wsl") == 1) then
 end
 
 vim.cmd("colorscheme kanagawa")
+-- vim.cmd("colorscheme gruvbox-material")
+-- vim.cmd("colorscheme everforest")
+-- vim.cmd("colorscheme solarized8")
 -- vim.cmd("colorscheme gruvbox")
 -- vim.cmd("colorscheme NeoSolarized")

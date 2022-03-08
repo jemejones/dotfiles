@@ -69,16 +69,16 @@ return require('packer').startup(function()
     }
     use {
         'rebelot/kanagawa.nvim',
-        -- opt = true,
-        -- module = "kanagawa",
-        -- config = function()
-        --     require('kanagawa').setup({
-        --         transparent = true,
-        --     })
-        -- end
-        -- config = "colorscheme kanagawa"
     }
-
+    use {
+        'sainnhe/gruvbox-material'
+    }
+    use {
+        'sainnhe/everforest'
+    }
+    use {
+        'lifepillar/vim-solarized8'
+    }
     -- Treesitter
     use {
         'nvim-treesitter/nvim-treesitter',
