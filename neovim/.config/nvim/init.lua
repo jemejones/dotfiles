@@ -1,11 +1,11 @@
 -- Plugins
 require('plugins')
 
--- Keybindings
-require('keybindings')
-
 -- Options
 require('options')
+
+-- Keybindings
+require('keybindings')
 
 -- Custom commands/functions
 require('commands')

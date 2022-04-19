@@ -116,3 +116,24 @@ vim.cmd("colorscheme kanagawa")
 -- vim.cmd("colorscheme solarized8")
 -- vim.cmd("colorscheme gruvbox")
 -- vim.cmd("colorscheme NeoSolarized")
+
+require('lspconfig').pylsp.setup{}
+require('lspconfig').gopls.setup{}
+
+-- local lspconfig = require "lspconfig"
+-- local util = require "lspconfig/util"
+--
+-- lspconfig.gopls.setup {
+--   cmd = {"gopls", "serve"},
+--   filetypes = {"go", "gomod"},
+--   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+--   settings = {
+--     gopls = {
+--       analyses = {
+--         unusedparams = true,
+--       },
+--       staticcheck = true,
+--     },
+--   },
+-- }
+--

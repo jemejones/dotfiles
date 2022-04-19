@@ -38,7 +38,20 @@ return require('packer').startup(function()
                 module = 'telescope._extensions.luasnip'
             }
         },
-        config = function() require'others'.telescope() end
+        -- config = function() require'others'.telescope() end
+        config = function()
+            require("telescope").setup {
+              extensions = {
+                fzf = {
+                  fuzzy = true,                    -- false will only do exact matching
+                  override_generic_sorter = true,  -- override the generic sorter
+                  override_file_sorter = true,     -- override the file sorter
+                  case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                                   -- the default case_mode is "smart_case"
+                }
+              }
+            }
+        end
     }
     use {
         'BurntSushi/ripgrep'
@@ -206,8 +219,8 @@ return require('packer').startup(function()
     -- LSP
     use {
         'neovim/nvim-lspconfig',
-        event = 'VimEnter',
-        config = function() require'lsp'.setup() end
+        -- event = 'VimEnter',
+        -- config = function() require'lsp'.setup() end
     }
     use {
         'williamboman/nvim-lsp-installer',
@@ -217,7 +230,8 @@ return require('packer').startup(function()
             local lsp_installer = require 'nvim-lsp-installer'
             -- Ensure installed
             local servers = {
-                "sumneko_lua", "tsserver", "tailwindcss", "pyright", "clangd", "cssls", "pylsp"
+                -- "sumneko_lua", "tsserver", "tailwindcss", "pyright", "clangd", "cssls", "pylsp"
+                "sumneko_lua", "pylsp", "gopls"
             }
 
             for _, name in pairs(servers) do
