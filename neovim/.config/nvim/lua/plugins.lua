@@ -96,12 +96,14 @@ return require('packer').startup(function()
     use {
         'nvim-treesitter/nvim-treesitter',
         opt = true,
-        event = "UIEnter",
+        -- event = "UIEnter",
+        event = "VimEnter",
         run = ':TSUpdate',
         config = function()
             require'nvim-treesitter.configs'.setup {
                 -- one of "all", "maintained", or a list of languages
-                ensure_installed = "maintained",
+                -- ensure_installed = "maintained",
+                ensure_installed = { "c", "lua", "rust" , "go", "python", "typescript", "json", "yaml"},
                 sync_install = false,
                 highlight = {
                     enable = true -- false will disable the whole extension
@@ -125,7 +127,9 @@ return require('packer').startup(function()
                             ["af"] = "@function.outer",
                             ["if"] = "@function.inner",
                             ["ac"] = "@class.outer",
-                            ["ic"] = "@class.inner"
+                            ["ic"] = "@class.inner",
+                            ["ap"] = "@parameter.outer",
+                            ["ip"] = "@parameter.inner"
                         }
                     }
                 },
@@ -231,7 +235,7 @@ return require('packer').startup(function()
             -- Ensure installed
             local servers = {
                 -- "sumneko_lua", "tsserver", "tailwindcss", "pyright", "clangd", "cssls", "pylsp"
-                "sumneko_lua", "pylsp", "gopls"
+                "sumneko_lua", "pylsp", "gopls", "pyright"
             }
 
             for _, name in pairs(servers) do
@@ -293,3 +297,5 @@ return require('packer').startup(function()
 
     if Packer_bootstrap then require('packer').sync() end
 end)
+
+

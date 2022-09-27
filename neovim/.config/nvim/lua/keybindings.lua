@@ -33,6 +33,7 @@ local mappings = {
     {'n', '<leader>x', '<cmd>bd<CR>'},
     {'n', '<localleader>f', '<cmd>Telescope find_files<CR>'},
     {'n', 'gQ', 'mmgggqG\'m'}, -- Comments to keep
+    {'n', '<leader>-', 'yypVr-'}, -- headerize with -
     {'t', '<M-h>', '<C-\\><C-n><C-w>h'}, -- per line
     {'t', '<M-j>', '<C-\\><C-n><C-w>j'}, -- when formatting
     {'t', '<M-k>', '<C-\\><C-n><C-w>k'}, -- TODO(mxdevmanuel)

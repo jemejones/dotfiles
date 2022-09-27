@@ -117,8 +117,12 @@ vim.cmd("colorscheme kanagawa")
 -- vim.cmd("colorscheme gruvbox")
 -- vim.cmd("colorscheme NeoSolarized")
 
+-- require('lspinstall').setup()
+
 require('lspconfig').pylsp.setup{}
-require('lspconfig').gopls.setup{}
+require('lspconfig').gopls.setup{
+    cmd_env = {GOFLAGS="-tags=integration"}
+}
 
 -- local lspconfig = require "lspconfig"
 -- local util = require "lspconfig/util"
@@ -126,14 +130,87 @@ require('lspconfig').gopls.setup{}
 -- lspconfig.gopls.setup {
 --   cmd = {"gopls", "serve"},
 --   filetypes = {"go", "gomod"},
---   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+--   -- root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 --   settings = {
 --     gopls = {
---       analyses = {
---         unusedparams = true,
+--       -- analyses = {
+--       --   unusedparams = true,
+--       -- },
+--       -- staticcheck = true,
+--       initializationOptions = {
+--         buildFlags = {"-tags=wireinject"},
 --       },
---       staticcheck = true,
 --     },
 --   },
 -- }
+
+-- local lspconfig = require'lspconfig'
+-- lspconfig.gopls.setup{
+--   on_attach = require'completion'.on_attach;
+--   settings = { gopls =  {
+--       buildFlags =  {"-tags=integration"}
+--     }
+--   }
+-- }
+
+
 --
+--
+-- local lsp_installer = require("nvim-lsp-installer")
+--
+-- -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
+-- -- or if the server is already installed).
+-- lsp_installer.on_server_ready(function(server)
+--     local opts = {}
+--
+--     -- (optional) Customize the options passed to the server
+--     -- if server.name == "tsserver" then
+--     --     opts.root_dir = function() ... end
+--     -- end
+--
+--     -- This setup() function will take the provided server configuration and decorate it with the necessary properties
+--     -- before passing it onwards to lspconfig.
+--     -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+--     server:setup(opts)
+-- end)
+
+--
+
+-- XXX - this isn't working
+-- local cmp = require"cmp"
+--
+-- cmp.setup({
+--    -- snippet = {
+--    --    expand = function(args)
+--    --       vim.fn["vsnip#anonymous"](args.body)
+--    --    end,
+--    -- },
+--    mapping = {
+--       ["<C-p>"] = cmp.mapping.select_prev_item(),
+--       ["<C-n>"] = cmp.mapping.select_next_item(),
+--       ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+--       ["<C-f>"] = cmp.mapping.scroll_docs(4),
+--       ["<C-Space>"] = cmp.mapping.complete(),
+--       ["<C-e>"] = cmp.mapping.close(),
+--       ["<CR>"] = cmp.mapping.confirm({
+--          behavior = cmp.ConfirmBehavior.Replace,
+--          select = true,
+--       }),
+--       ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
+--       ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
+--    },
+--    formatting = {
+--       format = function(_, vim_item)
+--          vim.cmd("packadd lspkind-nvim")
+--          vim_item.kind = require("lspkind").presets.codicons[vim_item.kind]
+--          .. "  "
+--          .. vim_item.kind
+--          return vim_item
+--       end,
+--    },
+--    sources = {
+--       { name = "nvim_lsp" },
+--       { name = "vsnip" },
+--       { name = "path" },
+--    },
+-- })
